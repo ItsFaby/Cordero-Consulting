@@ -1,0 +1,15 @@
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="auto-grad-1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fff3e0;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ffe0b2;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#auto-grad-1)"/>
+  <text x="400" y="250" font-family="Arial, sans-serif" font-size="120" fill="#f57c00" text-anchor="middle">⚙️</text>
+  <text x="400" y="350" font-family="Arial, sans-serif" font-size="32" fill="#e65100" text-anchor="middle" font-weight="bold">Automatización de Procesos</text>
+  <text x="400" y="400" font-family="Arial, sans-serif" font-size="24" fill="#f57c00" text-anchor="middle">Power Platform</text>
+  <rect x="250" y="450" width="80" height="15" fill="#e65100" opacity="0.7" rx="7"/>
+  <rect x="360" y="450" width="80" height="15" fill="#f57c00" opacity="0.7" rx="7"/>
+  <rect x="470" y="450" width="80" height="15" fill="#ff9800" opacity="0.7" rx="7"/>
+</svg>

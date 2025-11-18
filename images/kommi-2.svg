@@ -1,0 +1,14 @@
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="kommi-grad-2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#e1bee7;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ce93d8;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#kommi-grad-2)"/>
+  <rect x="250" y="250" width="300" height="150" rx="75" fill="#7b1fa2" opacity="0.3"/>
+  <text x="400" y="340" font-family="Arial, sans-serif" font-size="32" fill="#7b1fa2" text-anchor="middle" font-weight="bold">93.3%</text>
+  <text x="400" y="375" font-family="Arial, sans-serif" font-size="18" fill="#9c27b0" text-anchor="middle">Actividad Física Regular</text>
+  <text x="400" y="500" font-family="Arial, sans-serif" font-size="28" fill="#7b1fa2" text-anchor="middle" font-weight="bold">Investigación de Mercado</text>
+  <text x="400" y="535" font-family="Arial, sans-serif" font-size="20" fill="#4a148c" text-anchor="middle">Biomimética · Costa Rica</text>
+</svg>
