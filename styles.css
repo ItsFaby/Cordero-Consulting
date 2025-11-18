@@ -650,6 +650,60 @@ section {
     color: var(--text-medium);
 }
 
+/* Calendly CTA Styles */
+.calendly-cta {
+    text-align: center;
+    padding: 2rem;
+    background-color: var(--bg-white);
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    border: 2px solid var(--primary-color);
+}
+
+.calendly-cta p {
+    font-size: 1.125rem;
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.form-divider {
+    text-align: center;
+    position: relative;
+    margin: 2rem 0;
+}
+
+.form-divider span {
+    background-color: var(--bg-light);
+    padding: 0 1rem;
+    color: var(--text-medium);
+    font-size: 0.95rem;
+    position: relative;
+    z-index: 1;
+}
+
+.form-divider::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background-color: var(--border-color);
+}
+
+.calendly-link {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.calendly-link:hover {
+    color: var(--primary-dark);
+    text-decoration: underline;
+}
+
 /* ========================================
    CTA SECTION
    ======================================== */
