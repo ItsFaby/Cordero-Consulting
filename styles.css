@@ -269,7 +269,7 @@ section {
 }
 
 /* ========================================
-   SERVICES SECTION - CAROUSEL
+   SERVICES SECTION - HORIZONTAL CARDS
    ======================================== */
 
 .services {
@@ -277,33 +277,28 @@ section {
     padding: 80px 0;
 }
 
-/* Carousel Container */
-.services-carousel {
-    position: relative;
-    max-width: 900px;
+/* Services Grid Container */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 0 60px;
 }
 
-/* Track Container - Hidden overflow */
-.services-carousel-track-container {
-    overflow: hidden;
-    border-radius: 12px;
-}
-
-/* Track - Slides horizontally */
-.services-carousel-track {
-    display: flex;
-    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* Service Cards in Carousel */
-.services-carousel .service-card {
-    min-width: 100%;
+/* Service Cards */
+.service-card {
     background-color: var(--bg-white);
-    padding: 3rem;
+    padding: 2.5rem;
+    border-radius: 12px;
     box-shadow: var(--shadow-md);
     border-top: 4px solid var(--primary-color);
+    transition: var(--transition);
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
 }
 
 .service-icon {
@@ -340,88 +335,20 @@ section {
     font-size: 1.2rem;
 }
 
-/* Carousel Navigation Buttons */
-.carousel-button {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: var(--bg-white);
-    border: 2px solid var(--primary-color);
-    border-radius: 50%;
-    width: 48px;
-    height: 48px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: var(--transition);
-    z-index: 10;
-    box-shadow: var(--shadow-sm);
-    color: var(--primary-color);
-}
-
-.carousel-button:hover {
-    background-color: var(--primary-color);
-    color: var(--bg-white);
-    transform: translateY(-50%) scale(1.1);
-    box-shadow: var(--shadow-md);
-}
-
-.carousel-button:active {
-    transform: translateY(-50%) scale(0.95);
-}
-
-.carousel-button-prev {
-    left: 0;
-}
-
-.carousel-button-next {
-    right: 0;
-}
-
-.carousel-button:disabled {
-    opacity: 0.3;
-    cursor: not-allowed;
-    pointer-events: none;
-}
-
-/* Carousel Indicators (dots) */
-.carousel-indicators {
-    display: flex;
-    justify-content: center;
-    gap: 12px;
-    margin-top: 2rem;
-}
-
-.carousel-indicator {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background-color: var(--border-color);
-    border: none;
-    cursor: pointer;
-    transition: var(--transition);
-    padding: 0;
-}
-
-.carousel-indicator:hover {
-    background-color: var(--primary-light);
-    transform: scale(1.2);
-}
-
-.carousel-indicator.active {
-    background-color: var(--primary-color);
-    width: 32px;
-    border-radius: 6px;
-}
-
-/* Responsive Design for Carousel */
-@media (max-width: 768px) {
-    .services-carousel {
-        padding: 0 50px;
+/* Responsive Design for Services Grid */
+@media (max-width: 968px) {
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
     }
 
-    .services-carousel .service-card {
+    .service-card {
+        padding: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .service-card {
         padding: 2rem;
     }
 
@@ -437,20 +364,19 @@ section {
         font-size: 0.95rem;
         padding: 0.5rem 0;
     }
-
-    .carousel-button {
-        width: 40px;
-        height: 40px;
-    }
 }
 
 @media (max-width: 480px) {
-    .services-carousel {
-        padding: 0 40px;
+    .service-card {
+        padding: 1.5rem;
     }
 
-    .services-carousel .service-card {
-        padding: 1.5rem;
+    .service-icon {
+        font-size: 2rem;
+    }
+
+    .service-card h3 {
+        font-size: 1.25rem;
     }
 }
 
