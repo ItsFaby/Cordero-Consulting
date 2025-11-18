@@ -208,31 +208,127 @@ window.addEventListener('scroll', () => {
 // ========================================
 
 // ========================================
-// PORTFOLIO EXPAND/COLLAPSE
+// PORTFOLIO MODAL
 // ========================================
 
+const modal = document.getElementById('projectModal');
+const modalClose = document.querySelector('.modal-close');
 const expandButtons = document.querySelectorAll('.expand-btn');
 
+// Project data with images
+const projectData = {
+    'docking': {
+        images: ['images/docking-1.svg', 'images/docking-2.svg', 'images/docking-3.svg'],
+        placeholder: '🧬',
+        bgClass: 'biotech-bg'
+    },
+    'f1': {
+        images: ['images/f1-1.svg', 'images/f1-2.svg', 'images/f1-3.svg'],
+        placeholder: '🏎️',
+        bgClass: 'data-bg'
+    },
+    'microbioma': {
+        images: ['images/microbioma-1.svg', 'images/microbioma-2.svg'],
+        placeholder: '🔬',
+        bgClass: 'biotech-bg'
+    },
+    'automation': {
+        images: ['images/automation-1.svg', 'images/automation-2.svg'],
+        placeholder: '⚙️',
+        bgClass: 'automation-bg'
+    },
+    'happiness': {
+        images: ['images/happiness-1.svg', 'images/happiness-2.svg', 'images/happiness-3.svg'],
+        placeholder: '🌍',
+        bgClass: 'data-bg'
+    },
+    'bokaracas': {
+        images: ['images/bokaracas-1.svg', 'images/bokaracas-2.svg'],
+        placeholder: '🐍',
+        bgClass: 'design-bg'
+    },
+    'kommi': {
+        images: ['images/kommi-1.svg', 'images/kommi-2.svg', 'images/kommi-3.svg'],
+        placeholder: '🐸',
+        bgClass: 'design-bg'
+    }
+};
+
 if (expandButtons.length > 0) {
-    expandButtons.forEach(button => {
+    expandButtons.forEach((button, index) => {
         button.addEventListener('click', function() {
-            // Get the portfolio details container
             const portfolioContent = this.closest('.portfolio-content');
-            const portfolioDetails = portfolioContent.querySelector('.portfolio-details');
+            const portfolioItem = this.closest('.portfolio-item');
 
-            // Toggle expanded class
-            portfolioDetails.classList.toggle('expanded');
-            this.classList.toggle('expanded');
+            // Get project details
+            const tag = portfolioContent.querySelector('.portfolio-tag').textContent;
+            const title = portfolioContent.querySelector('h3').textContent;
+            const details = portfolioContent.querySelector('.portfolio-details').innerHTML;
+            const meta = portfolioContent.querySelector('.portfolio-meta').innerHTML;
 
-            // Update button text
-            if (this.classList.contains('expanded')) {
-                this.innerHTML = 'Ver menos';
-            } else {
-                this.innerHTML = 'Ver más';
+            // Determine which project this is
+            let projectKey = '';
+            if (title.includes('Docking')) projectKey = 'docking';
+            else if (title.includes('F1') || title.includes('Fórmula 1')) projectKey = 'f1';
+            else if (title.includes('Microbioma')) projectKey = 'microbioma';
+            else if (title.includes('Automatizado')) projectKey = 'automation';
+            else if (title.includes('Happiness')) projectKey = 'happiness';
+            else if (title.includes('BokaraCas')) projectKey = 'bokaracas';
+            else if (title.includes('Kommi')) projectKey = 'kommi';
+
+            // Populate modal
+            document.querySelector('.modal-tag').textContent = tag;
+            document.querySelector('.modal-title').textContent = title;
+            document.querySelector('.modal-description').innerHTML = details;
+            document.querySelector('.modal-meta').innerHTML = meta;
+
+            // Populate images
+            const modalImages = document.querySelector('.modal-images');
+            modalImages.innerHTML = '';
+
+            if (projectKey && projectData[projectKey]) {
+                const project = projectData[projectKey];
+                project.images.forEach(imgSrc => {
+                    const imageDiv = document.createElement('div');
+                    imageDiv.className = 'modal-image';
+                    const img = document.createElement('img');
+                    img.src = imgSrc;
+                    img.alt = title;
+                    imageDiv.appendChild(img);
+                    modalImages.appendChild(imageDiv);
+                });
             }
+
+            // Show modal
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
         });
     });
 }
+
+// Close modal
+if (modalClose) {
+    modalClose.addEventListener('click', function() {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    });
+}
+
+// Close modal when clicking outside
+window.addEventListener('click', function(event) {
+    if (event.target === modal) {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+});
+
+// Close modal with ESC key
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape' && modal.style.display === 'block') {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+});
 
 // ========================================
 // INITIALIZE ON PAGE LOAD

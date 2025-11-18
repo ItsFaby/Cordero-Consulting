@@ -1,0 +1,15 @@
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="biotech-grad-3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#a5d6a7;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#81c784;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#biotech-grad-3)"/>
+  <path d="M 200 300 Q 300 150, 400 300 T 600 300" fill="none" stroke="#2d5a3d" stroke-width="4"/>
+  <circle cx="200" cy="300" r="20" fill="#2d5a3d"/>
+  <circle cx="400" cy="300" r="20" fill="#2d5a3d"/>
+  <circle cx="600" cy="300" r="20" fill="#2d5a3d"/>
+  <text x="400" y="520" font-family="Arial, sans-serif" font-size="28" fill="#2d5a3d" text-anchor="middle" font-weight="bold">Análisis de Energía de Unión</text>
+  <text x="400" y="555" font-family="Arial, sans-serif" font-size="20" fill="#1f3d2a" text-anchor="middle">PyMOL · AutoDock</text>
+</svg>
