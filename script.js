@@ -208,6 +208,33 @@ window.addEventListener('scroll', () => {
 // ========================================
 
 // ========================================
+// PORTFOLIO EXPAND/COLLAPSE
+// ========================================
+
+const expandButtons = document.querySelectorAll('.expand-btn');
+
+if (expandButtons.length > 0) {
+    expandButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Get the portfolio details container
+            const portfolioContent = this.closest('.portfolio-content');
+            const portfolioDetails = portfolioContent.querySelector('.portfolio-details');
+
+            // Toggle expanded class
+            portfolioDetails.classList.toggle('expanded');
+            this.classList.toggle('expanded');
+
+            // Update button text
+            if (this.classList.contains('expanded')) {
+                this.innerHTML = 'Ver menos';
+            } else {
+                this.innerHTML = 'Ver más';
+            }
+        });
+    });
+}
+
+// ========================================
 // INITIALIZE ON PAGE LOAD
 // ========================================
 

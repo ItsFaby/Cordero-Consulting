@@ -507,6 +507,77 @@ section {
     font-size: 0.95rem;
 }
 
+.portfolio-summary {
+    color: var(--text-medium);
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* Portfolio Expandible Details */
+.portfolio-details {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out, opacity 0.4s ease-out, margin-bottom 0.4s ease-out;
+    opacity: 0;
+    margin-bottom: 0;
+}
+
+.portfolio-details.expanded {
+    max-height: 2000px;
+    opacity: 1;
+    margin-bottom: 1rem;
+}
+
+.portfolio-details p {
+    color: var(--text-medium);
+    margin-bottom: 0.875rem;
+    font-size: 0.9rem;
+    line-height: 1.7;
+}
+
+.portfolio-details p:last-child {
+    margin-bottom: 0;
+}
+
+.portfolio-details strong {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+/* Expand Button */
+.expand-btn {
+    background-color: var(--primary-color);
+    color: var(--bg-white);
+    border: none;
+    padding: 8px 20px;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    margin-bottom: 1rem;
+    display: inline-block;
+}
+
+.expand-btn:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.expand-btn:active {
+    transform: translateY(0);
+}
+
+.expand-btn.expanded::after {
+    content: ' ▲';
+}
+
+.expand-btn:not(.expanded)::after {
+    content: ' ▼';
+}
+
 .portfolio-meta {
     color: var(--text-light);
     font-size: 0.875rem;
