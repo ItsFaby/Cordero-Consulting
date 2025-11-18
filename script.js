@@ -204,12 +204,134 @@ window.addEventListener('scroll', () => {
 });
 
 // ========================================
+// SERVICES CAROUSEL
+// ========================================
+
+const track = document.querySelector('.services-carousel-track');
+const slides = Array.from(document.querySelectorAll('.service-card'));
+const nextButton = document.querySelector('.carousel-button-next');
+const prevButton = document.querySelector('.carousel-button-prev');
+const indicators = Array.from(document.querySelectorAll('.carousel-indicator'));
+
+if (track && slides.length > 0) {
+    let currentSlide = 0;
+    const totalSlides = slides.length;
+
+    // Move to slide function
+    const moveToSlide = (slideIndex) => {
+        track.style.transform = `translateX(-${slideIndex * 100}%)`;
+        currentSlide = slideIndex;
+        updateIndicators();
+    };
+
+    // Update indicators
+    const updateIndicators = () => {
+        indicators.forEach((indicator, index) => {
+            if (index === currentSlide) {
+                indicator.classList.add('active');
+            } else {
+                indicator.classList.remove('active');
+            }
+        });
+    };
+
+    // Next button
+    if (nextButton) {
+        nextButton.addEventListener('click', () => {
+            if (currentSlide < totalSlides - 1) {
+                moveToSlide(currentSlide + 1);
+            } else {
+                moveToSlide(0); // Loop back to first slide
+            }
+        });
+    }
+
+    // Previous button
+    if (prevButton) {
+        prevButton.addEventListener('click', () => {
+            if (currentSlide > 0) {
+                moveToSlide(currentSlide - 1);
+            } else {
+                moveToSlide(totalSlides - 1); // Loop to last slide
+            }
+        });
+    }
+
+    // Indicator clicks
+    indicators.forEach((indicator, index) => {
+        indicator.addEventListener('click', () => {
+            moveToSlide(index);
+        });
+    });
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') {
+            prevButton?.click();
+        } else if (e.key === 'ArrowRight') {
+            nextButton?.click();
+        }
+    });
+
+    // Touch/swipe support
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    const trackContainer = document.querySelector('.services-carousel-track-container');
+
+    if (trackContainer) {
+        trackContainer.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        trackContainer.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        }, { passive: true });
+    }
+
+    const handleSwipe = () => {
+        const swipeThreshold = 50;
+        const diff = touchStartX - touchEndX;
+
+        if (Math.abs(diff) > swipeThreshold) {
+            if (diff > 0) {
+                // Swipe left - next slide
+                nextButton?.click();
+            } else {
+                // Swipe right - previous slide
+                prevButton?.click();
+            }
+        }
+    };
+
+    // Auto-play (optional - uncomment to enable)
+    /*
+    const autoPlayInterval = 5000; // 5 seconds
+    let autoPlay = setInterval(() => {
+        nextButton?.click();
+    }, autoPlayInterval);
+
+    // Pause auto-play on hover
+    trackContainer.addEventListener('mouseenter', () => {
+        clearInterval(autoPlay);
+    });
+
+    trackContainer.addEventListener('mouseleave', () => {
+        autoPlay = setInterval(() => {
+            nextButton?.click();
+        }, autoPlayInterval);
+    });
+    */
+}
+
+// ========================================
 // INITIALIZE ON PAGE LOAD
 // ========================================
 
 document.addEventListener('DOMContentLoaded', () => {
     console.log('Cordero Consulting website loaded successfully');
-    
+
     // Add active class to current page in navigation
     const currentLocation = window.location.pathname.split('/').pop() || 'index.html';
     document.querySelectorAll('.nav-menu a').forEach(link => {
