@@ -71,10 +71,10 @@ Para cada proyecto, usa esta estructura:
 ```
 
 **Categorías disponibles:**
-- `biotech` - Bioinformática
+- `marketing` - Marketing Empresarial
+- `innovacion` - Innovación & Startups
 - `data` - Inteligencia de Datos
 - `automation` - Automatización
-- `design` - Diseño
 
 ### 4. Personalizar Colores
 
