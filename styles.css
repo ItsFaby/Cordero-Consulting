@@ -31,10 +31,15 @@ html {
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    font-family: 'Raleway', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     line-height: 1.6;
     color: var(--text-dark);
     background-color: var(--bg-white);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-weight: 600;
 }
 
 .container {
@@ -264,42 +269,54 @@ section {
 }
 
 /* ========================================
-   SERVICES SECTION
+   SERVICES SECTION - CAROUSEL
    ======================================== */
 
 .services {
     background-color: var(--bg-light);
+    padding: 80px 0;
 }
 
-.services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
+/* Carousel Container */
+.services-carousel {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 60px;
 }
 
-.service-card {
+/* Track Container - Hidden overflow */
+.services-carousel-track-container {
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+/* Track - Slides horizontally */
+.services-carousel-track {
+    display: flex;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Service Cards in Carousel */
+.services-carousel .service-card {
+    min-width: 100%;
     background-color: var(--bg-white);
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: var(--shadow-sm);
-    transition: var(--transition);
+    padding: 3rem;
+    box-shadow: var(--shadow-md);
     border-top: 4px solid var(--primary-color);
 }
 
-.service-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-md);
-}
-
 .service-icon {
-    font-size: 3rem;
-    margin-bottom: 1rem;
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    display: block;
 }
 
 .service-card h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
     color: var(--primary-color);
+    font-weight: 700;
 }
 
 .service-card ul {
@@ -307,10 +324,11 @@ section {
 }
 
 .service-card li {
-    padding: 0.5rem 0;
+    padding: 0.75rem 0;
     color: var(--text-medium);
     position: relative;
-    padding-left: 1.5rem;
+    padding-left: 1.75rem;
+    font-size: 1.05rem;
 }
 
 .service-card li:before {
@@ -319,6 +337,121 @@ section {
     font-weight: bold;
     position: absolute;
     left: 0;
+    font-size: 1.2rem;
+}
+
+/* Carousel Navigation Buttons */
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: var(--bg-white);
+    border: 2px solid var(--primary-color);
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition);
+    z-index: 10;
+    box-shadow: var(--shadow-sm);
+    color: var(--primary-color);
+}
+
+.carousel-button:hover {
+    background-color: var(--primary-color);
+    color: var(--bg-white);
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: var(--shadow-md);
+}
+
+.carousel-button:active {
+    transform: translateY(-50%) scale(0.95);
+}
+
+.carousel-button-prev {
+    left: 0;
+}
+
+.carousel-button-next {
+    right: 0;
+}
+
+.carousel-button:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+/* Carousel Indicators (dots) */
+.carousel-indicators {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 2rem;
+}
+
+.carousel-indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: var(--border-color);
+    border: none;
+    cursor: pointer;
+    transition: var(--transition);
+    padding: 0;
+}
+
+.carousel-indicator:hover {
+    background-color: var(--primary-light);
+    transform: scale(1.2);
+}
+
+.carousel-indicator.active {
+    background-color: var(--primary-color);
+    width: 32px;
+    border-radius: 6px;
+}
+
+/* Responsive Design for Carousel */
+@media (max-width: 768px) {
+    .services-carousel {
+        padding: 0 50px;
+    }
+
+    .services-carousel .service-card {
+        padding: 2rem;
+    }
+
+    .service-icon {
+        font-size: 2.5rem;
+    }
+
+    .service-card h3 {
+        font-size: 1.5rem;
+    }
+
+    .service-card li {
+        font-size: 0.95rem;
+        padding: 0.5rem 0;
+    }
+
+    .carousel-button {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .services-carousel {
+        padding: 0 40px;
+    }
+
+    .services-carousel .service-card {
+        padding: 1.5rem;
+    }
 }
 
 /* ========================================
