@@ -1,6 +1,6 @@
 # Cordero Consulting - Sitio Web Profesional
 
-Sitio web profesional para servicios de consultoría en biotecnología, ciencia de datos y análisis avanzado.
+Sitio web profesional para servicios de consultoría en diseño estratégico, innovación y desarrollo de negocios.
 
 ## 📁 Estructura de Archivos
 
@@ -72,7 +72,7 @@ Para cada proyecto, usa esta estructura:
 
 **Categorías disponibles:**
 - `biotech` - Bioinformática
-- `data` - Data Science
+- `data` - Inteligencia de Datos
 - `automation` - Automatización
 - `design` - Diseño
 
@@ -190,4 +190,4 @@ Si necesitas ayuda personalizando algo específico, solo pregunta.
 ---
 
 **Desarrollado para Kevin Cordero**
-Cordero Consulting - Biotecnología & Data Science
+Cordero Consulting - Diseño Estratégico & Innovación
