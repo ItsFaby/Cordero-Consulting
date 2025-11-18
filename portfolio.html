@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio - Cordero Consulting</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="index.html">Cordero Consulting</a>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="index.html#servicios">Servicios</a></li>
+                <li><a href="portfolio.html" class="active">Portafolio</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Portfolio Header -->
+    <section class="portfolio-header">
+        <div class="container">
+            <h1>Portafolio de Proyectos</h1>
+            <p>Casos de estudio que demuestran experiencia en biotecnología, ciencia de datos y análisis avanzado</p>
+        </div>
+    </section>
+
+    <!-- Filter Buttons -->
+    <section class="portfolio-filters">
+        <div class="container">
+            <button class="filter-btn active" data-filter="all">Todos</button>
+            <button class="filter-btn" data-filter="biotech">Bioinformática</button>
+            <button class="filter-btn" data-filter="data">Data Science</button>
+            <button class="filter-btn" data-filter="automation">Automatización</button>
+            <button class="filter-btn" data-filter="design">Diseño</button>
+        </div>
+    </section>
+
+    <!-- Portfolio Grid -->
+    <section class="portfolio-grid-section">
+        <div class="container">
+            <div class="portfolio-grid">
+                
+                <!-- Project 1 - Placeholder Bioinformática -->
+                <div class="portfolio-item" data-category="biotech">
+                    <div class="portfolio-image">
+                        <div class="placeholder-image biotech-bg">
+                            <span>🧬</span>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <span class="portfolio-tag">Bioinformática</span>
+                        <h3>Análisis de Docking Molecular</h3>
+                        <p>Predicción de interacciones proteína-ligando para identificación de compuestos bioactivos potenciales.</p>
+                        <div class="portfolio-meta">
+                            <span>AlphaFold · PyMOL · AutoDock</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 - Placeholder Data Science -->
+                <div class="portfolio-item" data-category="data">
+                    <div class="portfolio-image">
+                        <div class="placeholder-image data-bg">
+                            <span>📊</span>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <span class="portfolio-tag">Data Science</span>
+                        <h3>Modelo Predictivo de Ventas</h3>
+                        <p>Desarrollo de modelo de machine learning para predicción de ventas con 85% de precisión.</p>
+                        <div class="portfolio-meta">
+                            <span>Python · Scikit-learn · Power BI</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 - Placeholder Bioinformática -->
+                <div class="portfolio-item" data-category="biotech">
+                    <div class="portfolio-image">
+                        <div class="placeholder-image biotech-bg">
+                            <span>🔬</span>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <span class="portfolio-tag">Bioinformática</span>
+                        <h3>Análisis de Microbioma</h3>
+                        <p>Metabarcoding y caracterización de comunidades microbianas mediante análisis de ADN ambiental.</p>
+                        <div class="portfolio-meta">
+                            <span>QIIME2 · R · Phylogenetic Trees</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4 - Placeholder Automation -->
+                <div class="portfolio-item" data-category="automation">
+                    <div class="portfolio-image">
+                        <div class="placeholder-image automation-bg">
+                            <span>⚙️</span>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <span class="portfolio-tag">Automatización</span>
+                        <h3>Sistema de Gestión Automatizado</h3>
+                        <p>Automatización de flujo de trabajo empresarial reduciendo tiempo de procesamiento en 60%.</p>
+                        <div class="portfolio-meta">
+                            <span>Power Apps · Power Automate · SharePoint</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 5 - Placeholder Data Science -->
+                <div class="portfolio-item" data-category="data">
+                    <div class="portfolio-image">
+                        <div class="placeholder-image data-bg">
+                            <span>📈</span>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <span class="portfolio-tag">Data Science</span>
+                        <h3>Dashboard Ejecutivo de KPIs</h3>
+                        <p>Visualización interactiva de métricas clave de negocio para toma de decisiones estratégicas.</p>
+                        <div class="portfolio-meta">
+                            <span>R · ggplot2 · Shiny · SQL</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 6 - Placeholder Design -->
+                <div class="portfolio-item" data-category="design">
+                    <div class="portfolio-image">
+                        <div class="placeholder-image design-bg">
+                            <span>🎨</span>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <span class="portfolio-tag">Diseño & Branding</span>
+                        <h3>Identidad Visual Corporativa</h3>
+                        <p>Desarrollo completo de marca incluyendo logo, paleta de colores y guía de estilo para startup biotecnológica.</p>
+                        <div class="portfolio-meta">
+                            <span>Illustrator · Photoshop · Figma</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>¿Tienes un proyecto en mente?</h2>
+            <p>Conversemos sobre cómo puedo ayudarte</p>
+            <a href="contacto.html" class="btn btn-primary">Iniciar conversación</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Cordero Consulting</h3>
+                    <p>Biotecnología & Data Science</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Enlaces</h4>
+                    <ul>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="index.html#servicios">Servicios</a></li>
+                        <li><a href="portfolio.html">Portafolio</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contacto</h4>
+                    <p>Costa Rica</p>
+                    <p>info@corderoconsulting.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Cordero Consulting. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
