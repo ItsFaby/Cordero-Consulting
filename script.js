@@ -268,11 +268,11 @@ if (expandButtons.length > 0) {
 
             // Determine which project this is
             let projectKey = '';
-            if (title.includes('Docking')) projectKey = 'docking';
-            else if (title.includes('F1') || title.includes('Fórmula 1')) projectKey = 'f1';
-            else if (title.includes('Microbioma')) projectKey = 'microbioma';
-            else if (title.includes('Automatizado')) projectKey = 'automation';
-            else if (title.includes('Happiness')) projectKey = 'happiness';
+            if (title.includes('Prototipado Molecular') || title.includes('Docking')) projectKey = 'docking';
+            else if (title.includes('Deportes') || title.includes('F1') || title.includes('Fórmula 1')) projectKey = 'f1';
+            else if (title.includes('Microbiomas') || title.includes('Microbioma')) projectKey = 'microbioma';
+            else if (title.includes('Automatización Empresarial') || title.includes('Automatizado')) projectKey = 'automation';
+            else if (title.includes('Bienestar Global') || title.includes('Happiness')) projectKey = 'happiness';
             else if (title.includes('BokaraCas')) projectKey = 'bokaracas';
             else if (title.includes('Kommi')) projectKey = 'kommi';
 
