@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mockup - Diseño Radial</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Raleway', sans-serif;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
+
+        .mockup-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .mockup-header h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3rem;
+            color: #1a1a1a;
+            margin-bottom: 1rem;
+        }
+
+        .mockup-header p {
+            font-size: 1.2rem;
+            color: #4a4a4a;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #2d5a3d;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        /* RADIAL LAYOUT */
+        .radial-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            min-height: 900px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Central Circle */
+        .central-circle {
+            position: absolute;
+            width: 280px;
+            height: 280px;
+            background: linear-gradient(135deg, #2d5a3d 0%, #4a8c5f 100%);
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            z-index: 10;
+            box-shadow: 0 20px 60px rgba(45, 90, 61, 0.4);
+            border: 8px solid rgba(111, 220, 140, 0.2);
+            transition: all 0.4s ease;
+        }
+
+        .central-circle:hover {
+            transform: scale(1.05);
+            box-shadow: 0 25px 80px rgba(45, 90, 61, 0.5);
+        }
+
+        .central-circle h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 0.5rem;
+            line-height: 1.2;
+        }
+
+        .central-circle p {
+            font-size: 1rem;
+            opacity: 0.9;
+            text-align: center;
+        }
+
+        /* Service Cards positioned radially */
+        .service-radial {
+            position: absolute;
+            width: 320px;
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            border: 3px solid transparent;
+        }
+
+        .service-radial:hover {
+            transform: scale(1.05) translateY(-10px);
+            box-shadow: 0 20px 60px rgba(45, 90, 61, 0.25);
+            border-color: #6fdc8c;
+            z-index: 5;
+        }
+
+        /* Positioning - Top */
+        .service-radial:nth-child(2) {
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .service-radial:nth-child(2):hover {
+            transform: translateX(-50%) scale(1.05) translateY(-10px);
+        }
+
+        /* Positioning - Right */
+        .service-radial:nth-child(3) {
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+        }
+
+        .service-radial:nth-child(3):hover {
+            transform: translateY(-50%) scale(1.05) translateX(10px);
+        }
+
+        /* Positioning - Bottom */
+        .service-radial:nth-child(4) {
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .service-radial:nth-child(4):hover {
+            transform: translateX(-50%) scale(1.05) translateY(10px);
+        }
+
+        /* Positioning - Left */
+        .service-radial:nth-child(5) {
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+        }
+
+        .service-radial:nth-child(5):hover {
+            transform: translateY(-50%) scale(1.05) translateX(-10px);
+        }
+
+        /* Connecting lines */
+        .connection-line {
+            position: absolute;
+            background: linear-gradient(to right, rgba(111, 220, 140, 0.3), transparent);
+            height: 2px;
+            z-index: 1;
+            opacity: 0.5;
+        }
+
+        .line-top {
+            top: 140px;
+            left: 50%;
+            width: 140px;
+            transform: translateX(-50%) translateY(-200px);
+        }
+
+        .line-right {
+            top: 50%;
+            right: 160px;
+            width: 140px;
+            transform: translateY(-50%);
+        }
+
+        .line-bottom {
+            bottom: 140px;
+            left: 50%;
+            width: 140px;
+            transform: translateX(-50%) translateY(200px);
+        }
+
+        .line-left {
+            top: 50%;
+            left: 160px;
+            width: 140px;
+            transform: translateY(-50%) rotate(180deg);
+        }
+
+        .service-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        .service-radial h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #2d5a3d;
+            line-height: 1.2;
+        }
+
+        .service-radial p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #4a4a4a;
+            margin-bottom: 1rem;
+        }
+
+        .service-radial ul {
+            list-style: none;
+        }
+
+        .service-radial li {
+            padding: 0.4rem 0;
+            font-size: 0.9rem;
+            color: #6a6a6a;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .service-radial li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #6fdc8c;
+            font-weight: bold;
+        }
+
+        .priority-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: linear-gradient(135deg, #6fdc8c, #4a8c5f);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .radial-container {
+                min-height: auto;
+                display: flex;
+                flex-direction: column;
+                gap: 2rem;
+                padding: 2rem 0;
+            }
+
+            .central-circle {
+                position: relative;
+                margin-bottom: 2rem;
+            }
+
+            .service-radial {
+                position: relative !important;
+                top: auto !important;
+                left: auto !important;
+                right: auto !important;
+                bottom: auto !important;
+                transform: none !important;
+                width: 100%;
+                max-width: 500px;
+                margin: 0 auto;
+            }
+
+            .service-radial:hover {
+                transform: scale(1.02) translateY(-5px) !important;
+            }
+
+            .connection-line {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mockup-header h1 {
+                font-size: 2rem;
+            }
+
+            .central-circle {
+                width: 220px;
+                height: 220px;
+            }
+
+            .central-circle h2 {
+                font-size: 1.4rem;
+            }
+
+            .service-radial {
+                padding: 1.5rem;
+            }
+
+            .service-radial h3 {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="mockup-header">
+        <span class="badge">🌐 OPCIÓN 2: DISEÑO RADIAL</span>
+        <h1>¿Qué hacemos?</h1>
+        <p>Descubre si tu necesidad se alinea con nuestras áreas de especialización</p>
+    </div>
+
+    <div class="radial-container">
+        <!-- Central Circle -->
+        <div class="central-circle">
+            <h2>Innovación con Propósito</h2>
+            <p>Tu éxito, nuestro enfoque</p>
+        </div>
+
+        <!-- Connecting Lines -->
+        <div class="connection-line line-top"></div>
+        <div class="connection-line line-right"></div>
+        <div class="connection-line line-bottom"></div>
+        <div class="connection-line line-left"></div>
+
+        <!-- Top Service -->
+        <div class="service-radial">
+            <div class="priority-badge">PRIORIDAD</div>
+            <div class="service-icon">🎨</div>
+            <h3>Marketing Empresarial</h3>
+            <p>Diseño estratégico para marcas que quieren destacar</p>
+            <ul>
+                <li>Diseño y posicionamiento de marca</li>
+                <li>Estudios de mercado</li>
+                <li>Branding y piezas gráficas</li>
+            </ul>
+        </div>
+
+        <!-- Right Service -->
+        <div class="service-radial">
+            <div class="service-icon">📊</div>
+            <h3>Inteligencia de Datos</h3>
+            <p>Transformamos datos en decisiones estratégicas</p>
+            <ul>
+                <li>Análisis y procesado de datos</li>
+                <li>Modelado predictivo</li>
+                <li>Dashboards ejecutivos</li>
+            </ul>
+        </div>
+
+        <!-- Bottom Service -->
+        <div class="service-radial">
+            <div class="priority-badge">TOP</div>
+            <div class="service-icon">💡</div>
+            <h3>Innovación & Startups</h3>
+            <p>Validamos y prototipamos nuevos negocios</p>
+            <ul>
+                <li>Ideación y prototipado</li>
+                <li>Validación de conceptos</li>
+                <li>Consultoría bio y agro</li>
+            </ul>
+        </div>
+
+        <!-- Left Service -->
+        <div class="service-radial">
+            <div class="service-icon">⚙️</div>
+            <h3>Automatización</h3>
+            <p>Automatizamos procesos para tu equipo</p>
+            <ul>
+                <li>Dashboards inteligentes</li>
+                <li>Flujos automáticos</li>
+                <li>Áreas de mejora</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mockup - Diseño Hexagonal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Raleway', sans-serif;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
+
+        .mockup-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .mockup-header h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3rem;
+            color: #1a1a1a;
+            margin-bottom: 1rem;
+        }
+
+        .mockup-header p {
+            font-size: 1.2rem;
+            color: #4a4a4a;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #2d5a3d;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        /* HEXAGONAL LAYOUT */
+        .hexagon-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 0;
+            position: relative;
+        }
+
+        .hexagon-wrapper {
+            width: 300px;
+            height: 340px;
+            position: relative;
+            margin: -20px 10px;
+        }
+
+        /* Offset every other hex for honeycomb pattern */
+        .hexagon-wrapper:nth-child(even) {
+            margin-top: 150px;
+        }
+
+        .hexagon {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hexagon-content {
+            width: 94%;
+            height: 94%;
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            background: white;
+            padding: 3rem 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Color variations */
+        .hexagon-wrapper:nth-child(1) .hexagon {
+            background: linear-gradient(135deg, #2d5a3d 0%, #3d7a52 100%);
+        }
+
+        .hexagon-wrapper:nth-child(1) .hexagon-content {
+            background: linear-gradient(135deg, #2d5a3d 0%, #3d7a52 100%);
+            color: white;
+        }
+
+        .hexagon-wrapper:nth-child(2) .hexagon {
+            background: linear-gradient(135deg, #4a8c5f 0%, #6fdc8c 100%);
+        }
+
+        .hexagon-wrapper:nth-child(2) .hexagon-content {
+            background: linear-gradient(135deg, #4a8c5f 0%, #6fdc8c 100%);
+            color: white;
+        }
+
+        .hexagon-wrapper:nth-child(3) .hexagon {
+            background: linear-gradient(135deg, #1f3d2a 0%, #2d5a3d 100%);
+        }
+
+        .hexagon-wrapper:nth-child(3) .hexagon-content {
+            background: linear-gradient(135deg, #1f3d2a 0%, #2d5a3d 100%);
+            color: white;
+        }
+
+        .hexagon-wrapper:nth-child(4) .hexagon {
+            background: linear-gradient(135deg, #3d7a52 0%, #4a8c5f 100%);
+        }
+
+        .hexagon-wrapper:nth-child(4) .hexagon-content {
+            background: linear-gradient(135deg, #3d7a52 0%, #4a8c5f 100%);
+            color: white;
+        }
+
+        /* Hover effects */
+        .hexagon-wrapper:hover .hexagon {
+            transform: scale(1.1);
+            filter: drop-shadow(0 20px 40px rgba(45, 90, 61, 0.4));
+            z-index: 10;
+        }
+
+        .hexagon-wrapper:hover .hexagon-content {
+            filter: brightness(1.1);
+        }
+
+        .service-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+        }
+
+        .hexagon-content h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hexagon-content p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            opacity: 0.95;
+            margin-bottom: 1rem;
+        }
+
+        .hexagon-content ul {
+            list-style: none;
+            font-size: 0.85rem;
+            opacity: 0.9;
+        }
+
+        .hexagon-content li {
+            padding: 0.3rem 0;
+            position: relative;
+            padding-left: 1.2rem;
+        }
+
+        .hexagon-content li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+            opacity: 0.8;
+        }
+
+        .priority-badge {
+            position: absolute;
+            top: 25px;
+            background: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hexagon-container {
+                flex-direction: column;
+                gap: 2rem;
+            }
+
+            .hexagon-wrapper {
+                width: 350px;
+                height: 380px;
+                margin: 0 !important;
+            }
+
+            .hexagon-wrapper:nth-child(even) {
+                margin-top: 0 !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mockup-header h1 {
+                font-size: 2rem;
+            }
+
+            .hexagon-wrapper {
+                width: 300px;
+                height: 340px;
+            }
+
+            .hexagon-content {
+                padding: 2rem 1.5rem;
+            }
+
+            .hexagon-content h3 {
+                font-size: 1.3rem;
+            }
+
+            .service-icon {
+                font-size: 3rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hexagon-wrapper {
+                width: 280px;
+                height: 320px;
+            }
+
+            .hexagon-content {
+                padding: 2rem 1rem;
+            }
+
+            .hexagon-content h3 {
+                font-size: 1.2rem;
+            }
+
+            .hexagon-content p {
+                font-size: 0.85rem;
+            }
+
+            .service-icon {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="mockup-header">
+        <span class="badge">⬡ OPCIÓN 3: DISEÑO HEXAGONAL</span>
+        <h1>¿Qué hacemos?</h1>
+        <p>Descubre si tu necesidad se alinea con nuestras áreas de especialización</p>
+    </div>
+
+    <div class="hexagon-container">
+        <!-- Hexagon 1 - Marketing -->
+        <div class="hexagon-wrapper">
+            <div class="hexagon">
+                <div class="hexagon-content">
+                    <div class="priority-badge">PRIORIDAD</div>
+                    <div class="service-icon">🎨</div>
+                    <h3>Marketing Empresarial</h3>
+                    <p>Diseño estratégico para marcas que destacan</p>
+                    <ul>
+                        <li>Diseño y posicionamiento</li>
+                        <li>Estudios de mercado</li>
+                        <li>Branding completo</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hexagon 2 - Inteligencia -->
+        <div class="hexagon-wrapper">
+            <div class="hexagon">
+                <div class="hexagon-content">
+                    <div class="service-icon">📊</div>
+                    <h3>Inteligencia de Datos</h3>
+                    <p>Datos en decisiones estratégicas</p>
+                    <ul>
+                        <li>Análisis de datos</li>
+                        <li>Modelado predictivo</li>
+                        <li>Dashboards ejecutivos</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hexagon 3 - Innovación -->
+        <div class="hexagon-wrapper">
+            <div class="hexagon">
+                <div class="hexagon-content">
+                    <div class="priority-badge">TOP</div>
+                    <div class="service-icon">💡</div>
+                    <h3>Innovación & Startups</h3>
+                    <p>Validamos nuevos negocios</p>
+                    <ul>
+                        <li>Ideación y prototipado</li>
+                        <li>Validación de conceptos</li>
+                        <li>Consultoría especializada</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hexagon 4 - Automatización -->
+        <div class="hexagon-wrapper">
+            <div class="hexagon">
+                <div class="hexagon-content">
+                    <div class="service-icon">⚙️</div>
+                    <h3>Automatización</h3>
+                    <p>Procesos optimizados para tu equipo</p>
+                    <ul>
+                        <li>Dashboards inteligentes</li>
+                        <li>Flujos automáticos</li>
+                        <li>Mejora continua</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
