@@ -223,7 +223,7 @@ const projectData = {
         bgClass: 'biotech-bg'
     },
     'f1': {
-        images: ['images/f1-1.svg', 'images/f1-2.svg', 'images/f1-3.svg'],
+        images: ['images/7.png', 'images/8.png'],
         placeholder: '🏎️',
         bgClass: 'data-bg'
     },
@@ -233,7 +233,7 @@ const projectData = {
         bgClass: 'biotech-bg'
     },
     'automation': {
-        images: ['images/automation-1.svg', 'images/automation-2.svg'],
+        images: ['images/BD1.png', 'images/BD2.png'],
         placeholder: '⚙️',
         bgClass: 'automation-bg'
     },
@@ -243,12 +243,12 @@ const projectData = {
         bgClass: 'data-bg'
     },
     'bokaracas': {
-        images: ['images/bokaracas-1.svg', 'images/bokaracas-2.svg'],
+        images: ['images/CAS1.png', 'images/CAS2.png'],
         placeholder: '🐍',
         bgClass: 'design-bg'
     },
     'kommi': {
-        images: ['images/kommi-1.svg', 'images/kommi-2.svg', 'images/kommi-3.svg'],
+        images: ['images/5.png', '6.png'],
         placeholder: '🐸',
         bgClass: 'design-bg'
     }
