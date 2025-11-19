@@ -548,53 +548,86 @@ section {
    ======================================== */
 
 .portfolio-header {
-    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
-    padding: 80px 0;
-    text-align: center;
-    color: var(--bg-white);
+    background:
+        linear-gradient(135deg, rgba(26, 26, 26, 0.75) 0%, rgba(45, 90, 61, 0.70) 100%),
+        url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2000') center/cover no-repeat;
+    padding: 100px 0 80px 0;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.portfolio-header::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 40%;
+    height: 200%;
+    background: radial-gradient(ellipse at center, rgba(45, 90, 61, 0.05) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.portfolio-hero-content {
+    max-width: 900px;
+    position: relative;
+    z-index: 1;
 }
 
 .portfolio-header h1 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--bg-white);
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
-.portfolio-header p {
-    font-size: 1.125rem;
-    opacity: 0.9;
+.portfolio-subtitle {
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.95);
+    margin-bottom: 2.5rem;
+    text-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
 }
 
 .portfolio-filters {
-    padding: 40px 0;
-    text-align: center;
-    background-color: var(--bg-light);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 2rem;
 }
 
 .filter-btn {
-    background-color: transparent;
-    border: 2px solid var(--border-color);
-    color: var(--text-medium);
-    padding: 8px 20px;
-    margin: 0 0.375rem 0.75rem 0;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    color: rgba(255, 255, 255, 0.9);
+    padding: 10px 24px;
     border-radius: 6px;
     cursor: pointer;
     font-weight: 500;
     font-size: 0.95rem;
     transition: var(--transition);
     position: relative;
+    backdrop-filter: blur(10px);
 }
 
 .filter-btn:hover {
-    color: var(--primary-color);
-    background-color: rgba(45, 90, 61, 0.05);
-    border-color: var(--primary-color);
+    color: var(--bg-white);
+    background-color: rgba(111, 220, 140, 0.2);
+    border-color: rgba(111, 220, 140, 0.6);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .filter-btn.active {
-    background-color: var(--primary-color);
-    color: var(--bg-white);
-    border-color: var(--primary-color);
-    box-shadow: 0 2px 8px rgba(45, 90, 61, 0.25);
+    background-color: rgba(111, 220, 140, 0.95);
+    color: var(--text-dark);
+    border-color: #6fdc8c;
+    box-shadow: 0 4px 16px rgba(111, 220, 140, 0.4);
+    font-weight: 600;
 }
 
 .portfolio-grid-section {
@@ -1050,6 +1083,28 @@ section {
         font-size: 1rem;
     }
 
+    .portfolio-header h1 {
+        font-size: 2rem;
+    }
+
+    .portfolio-subtitle {
+        font-size: 1rem;
+    }
+
+    .portfolio-header {
+        padding: 80px 0 60px 0;
+        min-height: 450px;
+    }
+
+    .portfolio-filters {
+        justify-content: center;
+    }
+
+    .filter-btn {
+        font-size: 0.875rem;
+        padding: 8px 18px;
+    }
+
     .section-title {
         font-size: 2rem;
     }
@@ -1084,6 +1139,24 @@ section {
     .hero {
         padding: 60px 0;
         min-height: 500px;
+    }
+
+    .portfolio-header {
+        padding: 60px 0 50px 0;
+        min-height: 400px;
+    }
+
+    .portfolio-header h1 {
+        font-size: 1.75rem;
+    }
+
+    .portfolio-subtitle {
+        font-size: 0.95rem;
+    }
+
+    .filter-btn {
+        font-size: 0.8rem;
+        padding: 7px 14px;
     }
 
     section {
