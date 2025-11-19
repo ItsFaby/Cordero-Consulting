@@ -248,7 +248,7 @@ const projectData = {
         bgClass: 'design-bg'
     },
     'kommi': {
-        images: ['images/5.png', '6.png'],
+        images: ['images/5.png', 'images/6.png'],
         placeholder: '🐸',
         bgClass: 'design-bg'
     }
