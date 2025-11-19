@@ -659,6 +659,13 @@ section {
     overflow: hidden;
 }
 
+.portfolio-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
 .placeholder-image {
     width: 100%;
     height: 100%;
@@ -1296,7 +1303,7 @@ section {
 }
 
 .modal-tag {
-    display: inline-block;
+    display: none; /* Oculto en vista expandida */
     background-color: var(--primary-color);
     color: var(--bg-white);
     padding: 6px 16px;
