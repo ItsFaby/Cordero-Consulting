@@ -217,31 +217,6 @@ const expandButtons = document.querySelectorAll('.expand-btn');
 
 // Project data with images
 const projectData = {
-    'docking': {
-        images: ['images/docking-1.svg', 'images/docking-2.svg', 'images/docking-3.svg'],
-        placeholder: '🧬',
-        bgClass: 'biotech-bg'
-    },
-    'f1': {
-        images: ['images/7.png', 'images/8.png'],
-        placeholder: '🏎️',
-        bgClass: 'data-bg'
-    },
-    'microbioma': {
-        images: ['images/microbioma-1.svg', 'images/microbioma-2.svg'],
-        placeholder: '🔬',
-        bgClass: 'biotech-bg'
-    },
-    'automation': {
-        images: ['images/BD1.png', 'images/BD2.png'],
-        placeholder: '⚙️',
-        bgClass: 'automation-bg'
-    },
-    'happiness': {
-        images: ['images/happiness-1.svg', 'images/happiness-2.svg', 'images/happiness-3.svg'],
-        placeholder: '🌍',
-        bgClass: 'data-bg'
-    },
     'bokaracas': {
         images: ['images/CAS1.png', 'images/CAS2.png'],
         placeholder: '🐍',
@@ -252,15 +227,41 @@ const projectData = {
         placeholder: '🐸',
         bgClass: 'design-bg'
     },
+    'f1': {
+        images: ['images/9.png', 'images/7.png', 'images/8.png'],
+        placeholder: '🏎️',
+        bgClass: 'data-bg'
+    },
+    'automation': {
+        images: ['images/10.png', 'images/BD1.png', 'images/BD2.png'],
+        placeholder: '⚙️',
+        bgClass: 'automation-bg'
+    },
     'agrosmart': {
-        images: ['images/CAS1.png'],
-        placeholder: '🌱',
+        images: ['images/CAS1.png', 'images/CAS2.png'],
+        placeholder: '🔒',
         bgClass: 'innovation-bg'
     },
     'ecopack': {
-        images: ['images/CAS2.png'],
+        images: ['images/kommi-1.svg', 'images/kommi-2.svg', 'images/kommi-3.svg'],
         placeholder: '♻️',
         bgClass: 'innovation-bg'
+    },
+    // Legacy projects (kept for backward compatibility)
+    'docking': {
+        images: ['images/docking-1.svg', 'images/docking-2.svg', 'images/docking-3.svg'],
+        placeholder: '🧬',
+        bgClass: 'biotech-bg'
+    },
+    'microbioma': {
+        images: ['images/microbioma-1.svg', 'images/microbioma-2.svg'],
+        placeholder: '🔬',
+        bgClass: 'biotech-bg'
+    },
+    'happiness': {
+        images: ['images/happiness-1.svg', 'images/happiness-2.svg', 'images/happiness-3.svg'],
+        placeholder: '🌍',
+        bgClass: 'data-bg'
     }
 };
 
@@ -278,15 +279,16 @@ if (expandButtons.length > 0) {
 
             // Determine which project this is
             let projectKey = '';
-            if (title.includes('Prototipado Molecular') || title.includes('Docking')) projectKey = 'docking';
-            else if (title.includes('Deportes') || title.includes('F1') || title.includes('Fórmula 1')) projectKey = 'f1';
+            if (title.includes('Identidad Visual para Cerveza Artesanal')) projectKey = 'bokaracas';
+            else if (title.includes('Branding basado en investigación de mercado')) projectKey = 'kommi';
+            else if (title.includes('Sistema Predictivo de Machine Learning')) projectKey = 'f1';
+            else if (title.includes('Pipeline Automatizado') || title.includes('Automatizado')) projectKey = 'automation';
+            else if (title.includes('Prototipado UX') || title.includes('Seguridad Personal')) projectKey = 'agrosmart';
+            else if (title.includes('levantamiento de capital') || title.includes('Estrategia de levantamiento')) projectKey = 'ecopack';
+            // Legacy support
+            else if (title.includes('Prototipado Molecular') || title.includes('Docking')) projectKey = 'docking';
             else if (title.includes('Microbiomas') || title.includes('Microbioma')) projectKey = 'microbioma';
-            else if (title.includes('Automatización Empresarial') || title.includes('Automatizado')) projectKey = 'automation';
             else if (title.includes('Bienestar Global') || title.includes('Happiness')) projectKey = 'happiness';
-            else if (title.includes('BokaraCas')) projectKey = 'bokaracas';
-            else if (title.includes('Kommi')) projectKey = 'kommi';
-            else if (title.includes('AgroSmart') || title.includes('AgriTech')) projectKey = 'agrosmart';
-            else if (title.includes('EcoPack') || title.includes('Biodegradables')) projectKey = 'ecopack';
 
             // Populate modal
             document.querySelector('.modal-tag').textContent = tag;
