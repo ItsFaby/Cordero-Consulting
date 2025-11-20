@@ -235,7 +235,7 @@ const projectData = {
     'automation': {
         images: ['images/BD1.png', 'images/BD2.png'],
         placeholder: '⚙️',
-        bgClass: 'automation-bg'
+        bgClass: 'data-bg'
     },
     'agrosmart': {
         images: ['images/11.png', 'images/12.png'],
