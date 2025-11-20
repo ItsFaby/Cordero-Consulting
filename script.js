@@ -253,12 +253,12 @@ const projectData = {
         bgClass: 'design-bg'
     },
     'agrosmart': {
-        images: ['images/CAS1.png'],
+        images: ['images/CAS1.png', 'images/CAS2.png'],
         placeholder: '🌱',
         bgClass: 'innovation-bg'
     },
     'ecopack': {
-        images: ['images/CAS2.png'],
+        images: ['images/CAS1.png', 'images/CAS2.png'],
         placeholder: '♻️',
         bgClass: 'innovation-bg'
     }
