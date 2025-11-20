@@ -258,50 +258,28 @@ if (expandButtons.length > 0) {
     expandButtons.forEach((button, index) => {
         button.addEventListener('click', function() {
             const portfolioContent = this.closest('.portfolio-content');
-            const portfolioItem = this.closest('.portfolio-item');
+            const detailsSection = portfolioContent.querySelector('.portfolio-details');
 
-            // Get project details
-            const tag = portfolioContent.querySelector('.portfolio-tag').textContent;
-            const title = portfolioContent.querySelector('h3').textContent;
-            const details = portfolioContent.querySelector('.portfolio-details').innerHTML;
-            const meta = portfolioContent.querySelector('.portfolio-meta').innerHTML;
+            // Toggle expanded class
+            detailsSection.classList.toggle('expanded');
 
-            // Determine which project this is
-            let projectKey = '';
-            if (title.includes('Prototipado Molecular') || title.includes('Docking')) projectKey = 'docking';
-            else if (title.includes('Deportes') || title.includes('F1') || title.includes('Fórmula 1')) projectKey = 'f1';
-            else if (title.includes('Microbiomas') || title.includes('Microbioma')) projectKey = 'microbioma';
-            else if (title.includes('Automatización Empresarial') || title.includes('Automatizado')) projectKey = 'automation';
-            else if (title.includes('Bienestar Global') || title.includes('Happiness')) projectKey = 'happiness';
-            else if (title.includes('BokaraCas')) projectKey = 'bokaracas';
-            else if (title.includes('Kommi')) projectKey = 'kommi';
-
-            // Populate modal
-            document.querySelector('.modal-tag').textContent = tag;
-            document.querySelector('.modal-title').textContent = title;
-            document.querySelector('.modal-description').innerHTML = details;
-            document.querySelector('.modal-meta').innerHTML = meta;
-
-            // Populate images
-            const modalImages = document.querySelector('.modal-images');
-            modalImages.innerHTML = '';
-
-            if (projectKey && projectData[projectKey]) {
-                const project = projectData[projectKey];
-                project.images.forEach(imgSrc => {
-                    const imageDiv = document.createElement('div');
-                    imageDiv.className = 'modal-image';
-                    const img = document.createElement('img');
-                    img.src = imgSrc;
-                    img.alt = title;
-                    imageDiv.appendChild(img);
-                    modalImages.appendChild(imageDiv);
-                });
+            // Update button text
+            if (detailsSection.classList.contains('expanded')) {
+                this.textContent = 'Ver menos';
+            } else {
+                this.textContent = 'Ver más';
             }
 
-            // Show modal
-            modal.style.display = 'block';
-            document.body.style.overflow = 'hidden';
+            // Smooth scroll to the card if expanding
+            if (detailsSection.classList.contains('expanded')) {
+                setTimeout(() => {
+                    const portfolioItem = this.closest('.portfolio-item');
+                    portfolioItem.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'nearest'
+                    });
+                }, 100);
+            }
         });
     });
 }

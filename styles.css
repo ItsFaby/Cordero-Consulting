@@ -756,6 +756,139 @@ section {
     font-weight: 600;
 }
 
+/* Highlight Box - Problema/Solución */
+.highlight-box {
+    margin: 1.5rem 0;
+}
+
+.problem-solution {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.highlight-item {
+    padding: 1.25rem;
+    border-radius: 8px;
+    border-left: 4px solid;
+}
+
+.highlight-item.problem {
+    background-color: #fff3e0;
+    border-left-color: #ff9800;
+}
+
+.highlight-item.solution {
+    background-color: #e8f5e9;
+    border-left-color: #4caf50;
+}
+
+.highlight-item h4 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-dark);
+}
+
+.highlight-item p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 0;
+    color: var(--text-medium);
+}
+
+/* Project Gallery */
+.project-gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin: 1.5rem 0;
+}
+
+.gallery-image {
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: var(--bg-light);
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+}
+
+.gallery-image:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+
+.gallery-image img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}
+
+/* Detail Sections */
+.detail-section {
+    margin: 1.5rem 0;
+    padding: 1rem;
+    border-left: 3px solid var(--primary-light);
+    background-color: rgba(45, 90, 61, 0.02);
+    border-radius: 4px;
+}
+
+.detail-section h4 {
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+    color: var(--primary-dark);
+}
+
+.detail-section p {
+    margin-bottom: 0;
+}
+
+/* Highlight Results Section */
+.highlight-results {
+    background: linear-gradient(135deg, #e8f5e9 0%, #f1f8e9 100%);
+    border-left-color: #4caf50;
+    border-left-width: 4px;
+}
+
+.results-list {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
+}
+
+.results-list li {
+    padding: 0.5rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+    color: var(--text-medium);
+    font-size: 0.9rem;
+}
+
+.results-list li:before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #4caf50;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+/* Responsive adjustments for new elements */
+@media (max-width: 768px) {
+    .problem-solution {
+        grid-template-columns: 1fr;
+    }
+
+    .project-gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-image img {
+        height: 180px;
+    }
+}
+
 /* Expand Button - Subtle Gray with Green Border */
 .expand-btn {
     background-color: transparent;
