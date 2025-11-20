@@ -228,17 +228,17 @@ const projectData = {
         bgClass: 'design-bg'
     },
     'f1': {
-        images: ['images/9.png', 'images/7.png', 'images/8.png'],
+        images: ['images/7.png', 'images/8.png'],
         placeholder: '🏎️',
         bgClass: 'data-bg'
     },
     'automation': {
-        images: ['images/10.png', 'images/BD1.png', 'images/BD2.png'],
+        images: ['images/BD1.png', 'images/BD2.png'],
         placeholder: '⚙️',
         bgClass: 'automation-bg'
     },
     'agrosmart': {
-        images: ['images/CAS1.png', 'images/CAS2.png'],
+        images: ['images/11.png', 'images/12.png'],
         placeholder: '🔒',
         bgClass: 'innovation-bg'
     },
