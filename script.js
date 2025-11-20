@@ -243,7 +243,7 @@ const projectData = {
         bgClass: 'innovation-bg'
     },
     'ecopack': {
-        images: ['images/kommi-1.svg', 'images/kommi-2.svg', 'images/kommi-3.svg'],
+        images: ['images/14.png', 'images/15.png.svg'],
         placeholder: '♻️',
         bgClass: 'innovation-bg'
     },
