@@ -251,6 +251,16 @@ const projectData = {
         images: ['images/5.png', 'images/6.png'],
         placeholder: '🐸',
         bgClass: 'design-bg'
+    },
+    'agrosmart': {
+        images: ['images/CAS1.png'],
+        placeholder: '🌱',
+        bgClass: 'innovation-bg'
+    },
+    'ecopack': {
+        images: ['images/CAS2.png'],
+        placeholder: '♻️',
+        bgClass: 'innovation-bg'
     }
 };
 
@@ -275,6 +285,8 @@ if (expandButtons.length > 0) {
             else if (title.includes('Bienestar Global') || title.includes('Happiness')) projectKey = 'happiness';
             else if (title.includes('BokaraCas')) projectKey = 'bokaracas';
             else if (title.includes('Kommi')) projectKey = 'kommi';
+            else if (title.includes('AgroSmart') || title.includes('AgriTech')) projectKey = 'agrosmart';
+            else if (title.includes('EcoPack') || title.includes('Biodegradables')) projectKey = 'ecopack';
 
             // Populate modal
             document.querySelector('.modal-tag').textContent = tag;
