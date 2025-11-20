@@ -1339,6 +1339,77 @@ section {
     font-weight: 600;
 }
 
+/* Modal Section Styles for Better Readability */
+.modal-section {
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 2px solid var(--bg-light);
+}
+
+.modal-section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.modal-section-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 0.95rem;
+}
+
+.modal-section-title::before {
+    content: '';
+    width: 4px;
+    height: 20px;
+    background-color: var(--primary-color);
+    border-radius: 2px;
+}
+
+.modal-section p {
+    color: var(--text-medium);
+    line-height: 1.8;
+    margin-bottom: 0.75rem;
+}
+
+.modal-section p:last-child {
+    margin-bottom: 0;
+}
+
+.modal-section .highlight-text {
+    color: var(--text-dark);
+    font-weight: 600;
+}
+
+.modal-section ul {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 0.5rem;
+}
+
+.modal-section ul li {
+    padding-left: 1.5rem;
+    position: relative;
+    margin-bottom: 0.5rem;
+    color: var(--text-medium);
+    line-height: 1.7;
+}
+
+.modal-section ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
 .modal-meta {
     color: var(--text-light);
     font-size: 0.95rem;
