@@ -1,0 +1,15 @@
+{
+  "indexes": [
+    {
+      "collectionGroup": "contactMessages",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "timestamp",
+          "order": "DESCENDING"
+        }
+      ]
+    }
+  ],
+  "fieldOverrides": []
+}
