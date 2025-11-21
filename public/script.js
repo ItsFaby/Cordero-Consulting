@@ -94,7 +94,7 @@ const contactForm = document.getElementById('contactForm');
 const formMessage = document.getElementById('formMessage');
 
 if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
+    contactForm.addEventListener('submit', async (e) => {
         e.preventDefault();
 
         // Get form data
@@ -103,7 +103,9 @@ if (contactForm) {
             email: document.getElementById('email').value,
             phone: document.getElementById('phone').value,
             service: document.getElementById('service').value,
-            message: document.getElementById('message').value
+            message: document.getElementById('message').value,
+            timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+            status: 'nuevo'
         };
 
         // Show loading state
@@ -111,9 +113,12 @@ if (contactForm) {
         const originalButtonText = submitButton.textContent;
         submitButton.textContent = 'Enviando...';
         submitButton.disabled = true;
+        formMessage.style.display = 'block';
 
-        // Simulate form submission (replace with actual API call)
-        setTimeout(() => {
+        try {
+            // Guardar en Firestore
+            await db.collection('contactMessages').add(formData);
+
             // Show success message
             formMessage.textContent = '¡Mensaje enviado exitosamente! Te responderé pronto.';
             formMessage.className = 'form-message success';
@@ -121,40 +126,22 @@ if (contactForm) {
             // Reset form
             contactForm.reset();
 
-            // Reset button
-            submitButton.textContent = originalButtonText;
-            submitButton.disabled = false;
-
             // Hide message after 5 seconds
             setTimeout(() => {
                 formMessage.style.display = 'none';
             }, 5000);
 
-            // Log form data (for development)
-            console.log('Form submitted:', formData);
+            console.log('Mensaje guardado exitosamente en Firestore');
 
-            // TODO: Replace with actual form submission logic
-            // Example: Send to email service, database, or backend API
-            /*
-            fetch('/api/contact', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(formData)
-            })
-            .then(response => response.json())
-            .then(data => {
-                formMessage.textContent = '¡Mensaje enviado exitosamente!';
-                formMessage.className = 'form-message success';
-                contactForm.reset();
-            })
-            .catch(error => {
-                formMessage.textContent = 'Error al enviar el mensaje. Por favor intenta de nuevo.';
-                formMessage.className = 'form-message error';
-            });
-            */
-        }, 1500);
+        } catch (error) {
+            console.error('Error al enviar el mensaje:', error);
+            formMessage.textContent = 'Error al enviar el mensaje. Por favor intenta de nuevo.';
+            formMessage.className = 'form-message error';
+        } finally {
+            // Reset button
+            submitButton.textContent = originalButtonText;
+            submitButton.disabled = false;
+        }
     });
 }
 

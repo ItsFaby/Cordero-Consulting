@@ -1,0 +1,16 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Reglas para mensajes de contacto
+    match /contactMessages/{messageId} {
+      // Permitir que cualquiera pueda crear (escribir) mensajes de contacto
+      allow create: if request.auth == null
+                    && request.resource.data.name is string
+                    && request.resource.data.email is string
+                    && request.resource.data.message is string;
+
+      // Solo permitir lectura y actualización al administrador autenticado
+      allow read, update, delete: if request.auth != null;
+    }
+  }
+}
