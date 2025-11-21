@@ -2,12 +2,12 @@
 // IMPORTANTE: Reemplaza estos valores con los de tu proyecto Firebase
 // Puedes encontrarlos en: Firebase Console > Project Settings > Your apps
 const firebaseConfig = {
-    apiKey: "TU_API_KEY",
-    authDomain: "cordero-consulting.firebaseapp.com",
-    projectId: "cordero-consulting",
-    storageBucket: "cordero-consulting.appspot.com",
-    messagingSenderId: "TU_MESSAGING_SENDER_ID",
-    appId: "TU_APP_ID"
+  apiKey: "AIzaSyBFJstdemuOBUg6h_3cGbkb1HR-CWSwhZU",
+  authDomain: "cordero-consulting.firebaseapp.com",
+  projectId: "cordero-consulting",
+  storageBucket: "cordero-consulting.firebasestorage.app",
+  messagingSenderId: "635322299088",
+  appId: "1:635322299088:web:7726b0db9aa31c981aa4d5"
 };
 
 // Inicializar Firebase
