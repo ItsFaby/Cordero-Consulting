@@ -62,7 +62,7 @@ npm install
 ```bash
 firebase login
 firebase functions:config:set gmail.email="kevincorderobrizuela@gmail.com"
-firebase functions:config:set gmail.password="TU_CONTRASEÑA_DE_APLICACION_DE_16_CARACTERES"
+firebase functions:config:set gmail.password="fvqh yhtp zzbn vkiu"
 ```
 
 Verifica la configuración:
