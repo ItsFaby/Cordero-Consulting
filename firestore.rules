@@ -12,5 +12,19 @@ service cloud.firestore {
       // Solo permitir lectura y actualización al administrador autenticado
       allow read, update, delete: if request.auth != null;
     }
+
+    // Reglas para Reto Playas Costa Rica
+    match /playas/{playaId} {
+      // Permitir que cualquiera pueda leer las playas
+      allow read: if true;
+
+      // Permitir que cualquiera pueda actualizar (para agregar puntuaciones y comentarios)
+      allow update: if request.resource.data.id == resource.data.id
+                    && request.resource.data.numero == resource.data.numero
+                    && request.resource.data.nombre == resource.data.nombre;
+
+      // Solo administradores pueden crear y eliminar playas
+      allow create, delete: if request.auth != null;
+    }
   }
 }
