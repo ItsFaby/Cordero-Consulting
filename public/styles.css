@@ -54,7 +54,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .navbar {
     background-color: var(--bg-white);
-    padding: 0.5rem 0;
+    height: 70.39px;
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -65,6 +65,7 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    height: 100%;
 }
 
 .nav-brand a {
@@ -80,7 +81,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .logo {
-    height: 70.39px;
+    height: 60px;
     width: auto;
 }
 
